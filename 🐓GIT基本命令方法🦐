@@ -1,0 +1,20 @@
+git 是一种分布式版本控制系统   2020年11月04日 星期三 10时06分22秒 
+基本命令：
+本地仓库（本机）：工作区、暂存区、仓库区	远程仓库（github 码云）：
+git 基本配置 :git config --global user.name (githubname)   git config --global user.email(邮箱地址)
+查看配置：git config --list 
+初始化本地仓库：git init  //.git包括暂存区、仓库区 .git除外的就是工作区 .git是隐藏文件，linux版本需要ctrl + h 显示 ，window在当前窗口 查看-隐藏文件 打上勾。
+工作区和暂存区对比：没有提交显示红色,建议git add 提交，提交成功显示绿色。通过git rm --cached <file> 来删除暂存区文件。
+暂存区和仓库区进行对比：提交到仓库：git commit -m '备注信息'
+查看工作状态： git status
+查看提交仓库日志：git log //commit （日志id 唯一；作者，修改时间，备注信息。）每次修改，就会生成不同版本。 git log --oneline //简洁写法，缩短ID名。
+从暂存区回到工作修改状态：git checkout -- <file> // 将暂存区文件覆盖调工作区文件 工作区被删除文件也可以恢复。
+版本回退：reset命令 ：git reset HEAD // 将仓库区文件当前版本的覆盖掉暂存区文件，工作区未覆盖，通过查看状态status，文件名显示为红色。 HEAD（当前版本）   HEAD～（上一个版本）  用id名也可以实现版本回退：git reset 6007 	// git reset ID名 
+版本回退：soft命令 :只对仓库版本发生变动，对暂存区不影响。  git reset --soft HEAD~  
+版本回退：hard命令：git reset --hard HEAD~  // 将回退到仓库里面上一个版本，然后覆盖掉暂存区和工作区。   
+比较工作区和暂存区不同：git diff ; 比较两个版本不同 git diff ID1 ID2 // ID为指定id名。 比较当前工作区版本和仓库里面指定的版本：git diff 版本ID名 // git diff 6007Dfgtteg5263
+修改最后一次提交，不会生成新的版本，覆盖当前版本：git commit --amend -m '修改备注信息'。
+删除工作区和暂存区的文件：git rm file.name // git rm index.html 恢复：git reset --hard HEAD 
+暴力删除：工作区和暂存区文件不一样会提示你是否删除，也可以通过添加-f来达到暴力删除：git rm -f 'filename' // git rm -f index.html
+修改文件名 ：git mv 旧文件名 新文件名 // 改完以后自动保存在暂存区，只需要提交到版本库（本地仓库）commit提交 就可以了。
+总结：01. add // 用于把工作目录的文件放入暂存区 ；02.commit // 用于将暂存区的文件提交到仓库； 03.reset // 用于将仓库文件还原到暂存区和工作区；  04.checkout // 用于把暂存区的文件还原到工作区。

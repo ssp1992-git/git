@@ -1,0 +1,10 @@
+github 远程仓使用  // 先拉去远程在推送到远程。
+git remote add origin 远程仓地址 // git remote add origin https://github.com/ssp1992-git/git.git 建立远程仓的连接
+git remote -v // 查看本地仓库与远程仓库是否建立连接。
+git push origin master //推送到远程仓 master主分支
+多人协作开发：拉去远程仓代码：01：git fetch // fetch 拉去并不合并 ；02：git pull origin master// pull 拉去并合并。
+ssh传输协议：必须配置公钥和私钥。查看 ssh 公钥：ssh-keygen（第一种通过路径查看文件，另一种通过终端命令行：cd /home/ssp/.ssh，打开文件：vi id_rsa.pub）    **注意** 一台电脑只能绑定一个github账号。一个github账号可以绑定多台电脑公钥。
+配置github私钥：右上角=>settings=> SSH and GPG keys=> 删除原有的私钥，新建ssh key，把本机的key复制到github新的私钥中去。
+克隆远程仓：git clone "github SSH地址" // git@github.com:ssp1992-git/ssp.git 
+git push // 推送到git远程仓库，没有特定的分支,只有一个主分支直接push（dev,git push origin dev） vscode 也可以推送：new index => 终端：git add . ,git commit -m '备注信息' => vscode:源代码管理，提交到本地仓库（√）在弹出的input框中输入：change index.js（文件名.后缀名），最后点击推送。
+github仓库起名：账号名.github.io // ssp1992-git.github.io 提供服务器 静态页面的机会,但是要建立个index.html文件才行。

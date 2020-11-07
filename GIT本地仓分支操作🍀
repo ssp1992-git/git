@@ -1,0 +1,10 @@
+本地分支及分支管理操作：
+分支是什么概念了，有那么重要吗？就是我有个大项目要上线年，突然需要修改某些功能，咱们能在原来的项目上修改吗，不可以，所以可以创建分支来在分支上修改。
+查看当前仓库分支：git branch // * master  * 号代表当前分支。
+创建当前分支仓库（新分支）：git branch '分支名' // git branch dev
+切换分支：git checkout dev 
+创建并切换分支：git checkout -b '分支名' // git checkout -b dev  
+图形查看各分支上的版本信息： git log --graph --all --oneline
+分支的合并：git merge '分支名' // 前提：分支在master上，git merge dev,可通过图形查看分支分布： git log --graph --all
+删除分支：git branch -delete '分支名' // 简写 git branch -d '分支名' git branch -d qq/dev
+强制删除分支：git branch -D '分支名'
